@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+RUN_COMMAND="gunicorn --bind :$1 --name gunicorn-`hostname` --access-logfile - --error-logfile - app:app"
+
+if [ "${FLASK_DEBUG}" = true ] || [ "${FLASK_DEBUG}" = 1 ]; then
+    RUN_COMMAND="${RUN_COMMAND} --reload --log-level debug --timeout 9999"
+fi
+
+# Deploy and start the website
+flask deploy
+exec ${RUN_COMMAND}

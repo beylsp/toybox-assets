@@ -1,0 +1,9 @@
+# [env] Local environment settings
+.venv/
+
+# [cache] Cache and backup
+*.pyc
+__pycache__/
+
+# [data] local data
+*.sqlite*
