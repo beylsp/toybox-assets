@@ -40,7 +40,20 @@ def create_token(name):
         print(f"Token created: {token.name} - {token.token}")
 
 
+@token_group.command("view")
+@click.argument("name")
+def view_token(name):
+    """View API token"""
+    token = Token.query.filter(Token.name == name).one_or_none()
+
+    if not token:
+        print(f"No token named '{name}'")
+    else:
+        print(f"Token: {token.name} - {token.token}")
+
+
 app.cli.add_command(token_group)
+
 
 @app.cli.command()
 def deploy():

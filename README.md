@@ -28,6 +28,12 @@ Token created: devtoken - a8348f736e834f99b460e0813a750a14
 
 Save the output token.
 
+In order to view an earlier created token:
+
+``` bash
+$ pipenv run flask token view devtoken       # View token
+```
+
 ``` bash
 $ pipenv run flask run                       # Run the development server
 ```
@@ -92,4 +98,30 @@ You can now access the API with your token in your browser - e.g.:
 
 ```
 http://0.0.0.0:8017/api/v1/tokens?token=a8348f736e834f99b460e0813a750a14  # List all existing tokens in JSON format
+```
+
+## Token Management
+
+### Create a token
+
+``` bash
+$ curl -X POST http://0.0.0.0:8017/api/v1/tokens/<NAME>?token=<YOUR_TOKEN>
+```
+
+### List all tokens
+
+``` bash
+$ curl http://0.0.0.0:8017/api/v1/tokens?token=<YOUR_TOKEN>
+```
+
+### View a token
+
+``` bash
+$ curl http://0.0.0.0:8017/api/v1/tokens/<NAME>?token=<YOUR_TOKEN>
+```
+
+### Delete a token
+
+``` bash
+$ curl -X DELETE http://0.0.0.0:8017/api/v1/tokens/<NAME>?token=<YOUR_TOKEN>
 ```

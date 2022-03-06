@@ -16,7 +16,7 @@ export PIPENV_VENV_IN_PROJECT=1
 
 ENVPATH=${VIRTUAL_ENV}
 PIPENV=pipenv
-SYSTEM_DEPENDENCIES=python3-dev libpq-dev sqlite3 python3-pip
+SYSTEM_DEPENDENCIES=curl python3-dev libpq-dev sqlite3 python3-pip
 
 ifeq ($(ENVPATH),)
   ENVPATH=.venv
